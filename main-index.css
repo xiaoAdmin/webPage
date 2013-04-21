@@ -1,346 +1,1 @@
-@charset "UTF-8";
-body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
-	background-color: #4E5869;
-	margin: 0;
-	padding: 0;
-	color: #000;
-}
-
-/* ~~ Element/tag selectors ~~ */
-ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
-	padding: 0;
-	margin: 0;
-}
-h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
-	padding-right: 15px;
-	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
-}
-a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
-	border: none;
-}
-
-/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
-a:link {
-	color:#414958;
-	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
-}
-a:visited {
-	color: #4E5869;
-	text-decoration: underline;
-}
-a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
-	text-decoration: none;
-}
-
-/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
-.container {
-	width: 100%;
-	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
-	min-width: 780px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
-	background-color: #FFF;
-	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
-}
-
-/* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
-.header {
-	background-color: #6F7D94;
-}
-
-.top-nav{
-	background-color:#CCCCCC;
-}
-
-.search{
-	background-color:#903;
-	height:89px;
-}
-
-.main-nav{
-	background-color:#003;
-	height:61px;
-}
-/* ~~ This is the layout information. ~~ 
-
-1) Padding is only placed on the top and/or bottom of the div. The elements within this div have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
-
-*/
-.content {
-	margin:0 10% 0 10%;
-	padding: 10px 0;
-}
-
-/* ~~ This grouped selector gives the lists in the .content area space ~~ */
-.content ul, .content ol { 
-	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
-}
-
-.strategy{
-	background-color: #F8F8F8;
-	border: 1px solid #e5e5e5;
-	border-radius: 3px 3px;
-	display: inline-block;
-	height: 32px;
-	font: normal 16px/32px "微软雅黑";
-}
-
-.strategy ul{
-	list-style-type:none;
-}
-
-.strategy li {
-	float: left;
-}
-
-.strategy li a,.strategy li a:visited {
-	color: #E14425;
-	display: inline-block;
-	padding: 1px 20px;
-}
-
-.strategy li a {
-	transition: all 0.7s ease 0s;
-	line-height: 31px;
-}
-
-.strategy li a:hover {
-	background-color: #FF9;
-	text-decoration: none;
-	border-bottom: 1px solid #cb290a;
-	border-radius: 3px 3px;
-}
-
-.strategy li.unselected a{
-	border-bottom: 1px solid #cb290a;
-	border-radius: 3px 3px;
-	text-decoration: none;
-}
-
-.strategy li.current a,.strategy li.current a:visited {
-	background-color: #e14425;
-	border-bottom: 1px solid #cb290a;
-	border-radius: 3px 3px;
-	color: #FAF4E4;
-	height: 31px;
-	line-height: 31px;
-	margin-top: -1px;
-	position: relative;
-	text-decoration: none;
-}
-
-.filter{
-	height: 96px;
-	margin: 0 0 20px;
-	border: 1px solid #EAEAEA;
-	border-bottom: none;
-}
-
-.filter-category{
-	height: 44px;
-	position: relative;
-	background-color: #F8F8F8;
-	border: 1px solid #e5e5e5;
-	border-radius: 3px 3px;
-}
-
-.filter-category h3{
-	color: #8E452D;
-	font-size: 14px;
-	height: 44px;
-	line-height: 44px;
-	margin: 0 5px 0 0;
-	float: left;
-}
-
-.filter-category li {
-	float: left;
-	margin-right: 15px;
-	margin-top: 10px;
-	list-style-type:none;
-}
-
-.filter-category li a {
-	color: #404040;
-	display: block;
-	font-size: 14px;
-	height: 24px;
-	line-height: 24px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	width: 44px;
-}
-
-.filter-category li.current a {
-	background: url('http://s0.mizhe.cn/image/tuan/list_merge.png')
-		no-repeat -106px -269px transparent;
-	color: #fff;
-	font-weight: bold;
-}
-
-
-/*   sort   */
-.filter-sort{
-	height: 38px;
-    position: relative;
-	background-color: #F8F8F8;
-	border: 1px solid #e5e5e5;
-	border-radius: 3px 3px;
-}
-
-.filter-sort h3{
-	color: #8E452D;
-	font-size: 14px;
-	height: 44px;
-	line-height: 44px;
-	margin: 0 5px 0 0;
-	float: left;
-}
-
-.filter-sort li {
-	margin-top: 10px;
-	margin-right: 15px;
-	list-style-type:none;
-	float: left;
-}
-
-.filter-sort li a {
-	color: #777;
-	cursor: pointer;
-	display: inline-block;
-	height: 24px;
-	line-height: 24px;
-	text-decoration: none;
-	font-size: 14px;
-}
-
-.filter-sort li.current a {
-	color: #ff3300;
-}
-
-.goods-list {
-	position: relative;
-}
-
-.goods-item {
-	float: left;
-	margin: 0 0 20px 20px;
-	width: 270px;
-	box-shadow: 0 1px 3px #e1e1e1;
-	border: 1px solid #fff;
-	background: #fff;
-	border-radius: 4px;
-	padding: 15px 15px 10px;
-    height: 395px;
-}
-
-.goods-item .title {
-	color: #444;
-	font-size: 14px;
-	font-weight: bold;
-	height: 45px;
-	line-height: 22px;
-	overflow: hidden;
-    word-break: break-all;
-}
-.goods-item .image {
-	text-align: center;
-	position: relative;
-	height: 270px;
-}
-
-.goods-item .mask {
-	background: rgb(0, 0, 0);
-		/* RGBa with 0.6 opacity */
-		background: rgba(0, 0, 0, 0.6);
-		/* For IE 5.5 - 7*/
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
-		/* For IE 8*/
-		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
-}
-
-.goods-item .mask,.goods-item .mask-content {
-	bottom: 0;
-	display: block;
-	height: 20px;
-	line-height: 20px;
-	left: 0;
-	padding: 0 10px;
-	position: absolute;
-	width: 250px;
-}
-
-.goods-item .mask-content {
-	color: #f8f8f8;
-	text-shadow: -1px 0 0 #555555;
-	font-size:12px;
-	text-align: left;
-}
-
-.goods-item .mask-content .mask-label-right {
-
-}
-
-.goods-item .mask-content em {
-	text-decoration: line-through;
-}
-
-.status-label {
-	background: #F73710;
-	height: 40px;
-	line-height: 40px;
-	padding: 5px 10px;
-	border-top: 1px solid #f30;
-	color: #fff;
-    width: 250px;
-}
-
-.status-label .price-info {
-	letter-spacing: -1px;
-	text-shadow: 0 0 0 transparent, 1px 1px 1px #990000;
-	float: left;
-}
-
-.status-label .price-info .currency {
-	font-size: 18px;
-	padding-right: 2px;
-}
-
-.status-label .price-info .price-number {
-	font-size: 36px;
-}
-
-.status-label .buy-button {
-	display: block;
-	float: right;
-	font: bold 18px/29px 'Microsoft Yahei';
-	height: 32px;
-	margin: 5px 0 0;
-	overflow: hidden;
-	background-color:#F69;
-    no-repeat;
-}
-
-/* ~~ The footer ~~ */
-.footer {
-	padding: 10px 0;
-	height:61px;
-	background-color: #6F7D94;
-}
-
-/* ~~ miscellaneous float/clear classes ~~ */
-.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
-	float: right;
-	margin-left: 8px;
-}
-.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
-	float: left;
-	margin-right: 8px;
-}
-.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
-	clear:both;
-	height:0;
-	font-size: 1px;
-	line-height: 0px;
-}
+@charset "UTF-8";body {	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;	background-color: #4E5869;	margin: 0;	padding: 0;	color: #000;}/* ~~ Element/tag selectors ~~ */ul, ol, dl {	padding: 0;	margin: 0;}h1, h2, h3, h4, h5, h6, p {	margin-top: 0	padding-right: 15px;	padding-left: 15px;}a img {	border: none;}a:link {	color:#414958;	text-decoration: underline; }a:visited {	color: #4E5869;	text-decoration: underline;}a:hover, a:active, a:focus {	text-decoration: none;}.header {	background-color: #6F7D94;}.top-nav{	background-color:#CCCCCC;}.search{	background-color:#903;	height:89px;}.main-nav{	background-color: #FFFF99;	height:38px;    width: 100%;    margin: 0 0 20px;}.main-nav-content{	padding:0 10%;}.main-nav .fl a{	background-color:#CC3300;    float: left;    height: 34px;    width: 100px;    font-size: 16px;    position: relative;	text-align:center;	line-height: 34px;	border: 1px solid #FFFFFF;}/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */.container {	width: 100%;	max-width: 1260px;	min-width: 780px;	background-color: #FFF;	margin: 0 auto;	height:100%;	overflow:auto;}.content {	margin:0 10% 0 10%;	padding: 10px 0;}.strategy{	background-color: #F8F8F8;	border: 1px solid #e5e5e5;	border-bottom:none;	border-radius: 3px 3px 0 0;	display: inline-block;	height: 32px;	font: normal 16px/32px "微软雅黑";}.strategy ul{	list-style:none;}.strategy ul li {	float: left;}.strategy li a,.strategy li a:visited {	color: #E14425;	display: inline-block;	padding: 1px 20px;}.strategy li a {	transition: all 0.7s ease 0s;	line-height: 31px;}.strategy li a:hover {	background-color: #FF9;	text-decoration: none;	border-bottom: 1px solid #cb290a;	border-radius: 3px 3px 0 0;}.strategy li.unselected a{	border-bottom: 1px solid #cb290a;	border-radius: 3px 3px 0 0;	text-decoration: none;}.strategy li.current a,.strategy li.current a:visited {	background-color: #e14425;	border-bottom: 1px solid #cb290a;	border-radius: 3px 3px 0 0;	color: #FAF4E4;	height: 31px;	line-height: 31px;	margin-top: -1px;	position: relative;	text-decoration: none;}.filter{	height: 96px;	margin: 0 0 20px;}.filter-category{	height: 44px;	position: relative;	background-color: #F8F8F8;	border: 1px solid #e5e5e5;	border-radius: 3px 3px 0 0;}.filter-category h3{	color: #8E452D;	font-size: 14px;	height: 44px;	line-height: 44px;	margin: 0 5px 0 0;	float: left;}.filter-category li {	float: left;	margin-right: 15px;	margin-top: 10px;	list-style-type:none;}.filter-category li a {	color: #404040;	display: block;	font-size: 14px;	height: 24px;	line-height: 24px;	position: relative;	text-align: center;	text-decoration: none;	width: 44px;}.filter-category li.current a {	background: url('http://s0.mizhe.cn/image/tuan/list_merge.png')		no-repeat -106px -269px transparent;	color: #fff;	font-weight: bold;}/*   sort   */.filter-sort{	height: 38px;    position: relative;	background-color: #F8F8F8;	border: 1px solid #e5e5e5;	border-top:none;	border-radius: 0 0 3px 3px;}.filter-sort h3{	color: #8E452D;	font-size: 14px;	height: 44px;	line-height: 44px;	margin: 0 5px 0 0;	float: left;}.filter-sort li {	margin-top: 10px;	margin-right: 15px;	list-style-type:none;	float: left;}.filter-sort li a {	color: #777;	cursor: pointer;	display: inline-block;	height: 24px;	line-height: 24px;	text-decoration: none;	font-size: 14px;}.filter-sort li.current a {	color: #ff3300;}.goods-list {	position: relative;	width:1000px;}.goods-list .goods-list-ul{	list-style:none;}.goods-item {	float: left;	margin: 0 20px 20px 0;	width: 280px;	box-shadow: 0 1px 3px #e1e1e1;	border: 1px solid #CCCCCC;	background: #fff;	border-radius: 4px;	padding: 15px 15px 10px;    height: 375px;}.goods-item .title {	color: #444;	font-size: 14px;	font-weight: bold;	height: 45px;	line-height: 22px;	overflow: hidden;    word-break: break-all;}.goods-item .image {	text-align: center;	position: relative;	height: 270px;}.goods-item .mask {	background: rgb(0, 0, 0);		/* RGBa with 0.6 opacity */		background: rgba(0, 0, 0, 0.6);		/* For IE 5.5 - 7*/		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);		/* For IE 8*/		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";}.goods-item .mask,.goods-item .mask-content {	bottom: 0;	display: block;	height: 24px;	line-height: 20px;	left: 0;	padding: 5px 10px;	position: absolute;	width: 260px;}.goods-item .mask-content {	color: #f8f8f8;	text-shadow: -1px 0 0 #555555;	font-size:12px;	text-align: left;}.goods-item .mask-content .mask-label-right {	float: right;}.mask-label-right .buy-no{	color:#99CC00;}.goods-item .mask-content em {	text-decoration: line-through;}.status-label {	background: #F73710;	height: 40px;	line-height: 40px;	padding: 5px 10px;	border-top: 1px solid #f30;	color: #fff;    width: 260px;}.status-label .price-info {	letter-spacing: -1px;	text-shadow: 0 0 0 transparent, 1px 1px 1px #990000;	float: left;}.status-label .price-info .currency {	font-size: 18px;	padding-right: 2px;}.status-label .price-info .price-number {	font-size: 36px;}.status-label .buy-button {	display: block;	float: right;	font: bold 18px/29px 'Microsoft Yahei';	height: 32px;	margin: 5px 0 0;	overflow: hidden;	background-color:#F69;    no-repeat;}.go-back{	clear:both;	border:solid 1px #009999;}.go-back a{	position:relative;	bottom:44px;	right:30px;	float:right;	background: url("elements.png") 5px -510px;	height:44px;	width:44px;	border:solid 1px #009999;}/* ~~ The footer ~~ */.footer {	padding: 10px 0;	height:61px;	background-color: #6F7D94;	margin: 0;	border: 1px solid;}.footer  p{	height:61px;	background-color: #6F7D94;	margin: 0;	border: 1px solid;}/* ~~ miscellaneous float/clear classes ~~ */.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */	float: right;	margin-left: 8px;}.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */	float: left;	margin-right: 8px;}.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */	clear:both;	height:0;	font-size: 1px;	line-height: 0px;}
